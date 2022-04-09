@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -18,11 +18,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="InstaGrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJO-ue-qly">
-                                <rect key="frame" x="71.666666666666686" y="54" width="118.66666666666666" height="30"/>
+                                <rect key="frame" x="72" y="54" width="118.5" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="j3a-kT-kAx"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="116" id="k08-zu-uBN"/>
@@ -32,13 +32,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Zg2-9c-YrE" userLabel="UsageView">
-                                <rect key="frame" x="20" y="234" width="222" height="638"/>
+                                <rect key="frame" x="20" y="234" width="222" height="608"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zev-pc-HE3" userLabel="SwipeView">
                                         <rect key="frame" x="0.0" y="0.0" width="222" height="30"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="shu-9v-s9g" userLabel="Arrow">
-                                                <rect key="frame" x="106.33333333333333" y="0.0" width="9.3333333333333286" height="13"/>
+                                                <rect key="frame" x="106.5" y="0.0" width="9" height="13"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="13.029999999999999" id="4zl-oa-wat"/>
                                                     <constraint firstAttribute="width" constant="9.4800000000000004" id="Ra8-Za-zG6"/>
@@ -92,16 +92,16 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccW-EH-IEK" userLabel="SelectedView">
-                                        <rect key="frame" x="0.0" y="60" width="222" height="468"/>
+                                        <rect key="frame" x="0.0" y="60" width="222" height="438"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Xti-jX-yGh" userLabel="LayoutView">
-                                                <rect key="frame" x="15" y="15" width="192" height="438"/>
+                                                <rect key="frame" x="15" y="15" width="192" height="408"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="bpf-Aq-vGV" userLabel="TopLayoutView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="211.66666666666666"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="196.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNx-qZ-xQ8">
-                                                                <rect key="frame" x="0.0" y="0.0" width="88.666666666666671" height="211.66666666666666"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="88.5" height="196.5"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" image="Plus">
@@ -109,7 +109,7 @@
                                                                 </state>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7M-7l-hK8">
-                                                                <rect key="frame" x="103.66666666666666" y="0.0" width="88.333333333333343" height="211.66666666666666"/>
+                                                                <rect key="frame" x="103.5" y="0.0" width="88.5" height="196.5"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" image="Plus">
@@ -119,10 +119,10 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="LCy-tn-8lL" userLabel="BottomLayoutView">
-                                                        <rect key="frame" x="0.0" y="226.66666666666663" width="192" height="211.33333333333337"/>
+                                                        <rect key="frame" x="0.0" y="211.5" width="192" height="196.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzF-qq-OTN">
-                                                                <rect key="frame" x="0.0" y="0.0" width="88.666666666666671" height="211.33333333333334"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="88.5" height="196.5"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" image="Plus">
@@ -130,7 +130,7 @@
                                                                 </state>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfb-We-FGh">
-                                                                <rect key="frame" x="103.66666666666666" y="0.0" width="88.333333333333343" height="211.33333333333334"/>
+                                                                <rect key="frame" x="103.5" y="0.0" width="88.5" height="196.5"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" image="Plus">
@@ -157,13 +157,13 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gdb-Rc-Daa" userLabel="SelectionView">
-                                        <rect key="frame" x="0.0" y="558" width="222" height="80"/>
+                                        <rect key="frame" x="0.0" y="528" width="222" height="80"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CIz-Ay-A8R" userLabel="LayoutsView">
                                                 <rect key="frame" x="0.0" y="0.0" width="222" height="80"/>
                                                 <subviews>
                                                     <button contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mmf-hW-HCm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="60.666666666666664" height="80"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="60.5" height="80"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" id="I9r-js-WQi"/>
                                                         </constraints>
@@ -172,7 +172,7 @@
                                                         <state key="selected" image="Selected" backgroundImage="Layout 1"/>
                                                     </button>
                                                     <button contentMode="scaleAspectFit" selected="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Chx-Qo-djD">
-                                                        <rect key="frame" x="80.666666666666671" y="0.0" width="60.666666666666671" height="80"/>
+                                                        <rect key="frame" x="80.5" y="0.0" width="61" height="80"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" id="1Xd-09-pwz"/>
                                                         </constraints>
@@ -181,7 +181,7 @@
                                                         <state key="selected" image="Selected" backgroundImage="Layout 2"/>
                                                     </button>
                                                     <button contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a02-yu-4Iv">
-                                                        <rect key="frame" x="161.33333333333334" y="0.0" width="60.666666666666657" height="80"/>
+                                                        <rect key="frame" x="161.5" y="0.0" width="60.5" height="80"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" id="EKN-Y3-Ho3"/>
                                                         </constraints>
@@ -237,12 +237,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Arrow Left" width="3.3333332538604736" height="4.6666665077209473"/>
-        <image name="Arrow Up" width="4.6666665077209473" height="3.3333332538604736"/>
-        <image name="Layout 1" width="26.666666030883789" height="26.666666030883789"/>
-        <image name="Layout 2" width="26.666666030883789" height="26.666666030883789"/>
-        <image name="Layout 3" width="26.666666030883789" height="26.666666030883789"/>
-        <image name="Plus" width="13.333333015441895" height="13.333333015441895"/>
-        <image name="Selected" width="26.666666030883789" height="26.666666030883789"/>
+        <image name="Arrow Left" width="3.5" height="4.5"/>
+        <image name="Arrow Up" width="4.5" height="3.5"/>
+        <image name="Layout 1" width="27" height="27"/>
+        <image name="Layout 2" width="27" height="27"/>
+        <image name="Layout 3" width="27" height="27"/>
+        <image name="Plus" width="13.5" height="13.5"/>
+        <image name="Selected" width="27" height="27"/>
     </resources>
 </document>

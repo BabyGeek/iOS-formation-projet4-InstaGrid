@@ -41,6 +41,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B189C142801DEB90088FAF4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2B189C152801DEC10088FAF4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2B909A0227FDBB0A0025CA7F /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2B189C162801DED00088FAF4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2B909A0027FDBB0A0025CA7F /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2B189C172801DF100088FAF4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2B9099FC27FDBB0A0025CA7F /* AppDelegate.swift */,
+				2B9099FE27FDBB0A0025CA7F /* SceneDelegate.swift */,
+				2B909A0527FDBB0A0025CA7F /* Assets.xcassets */,
+				2B909A0727FDBB0A0025CA7F /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		2B2A97C327FEED2C00190107 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,13 +103,11 @@
 		2B9099FB27FDBB0A0025CA7F /* InstaGrid */ = {
 			isa = PBXGroup;
 			children = (
+				2B189C162801DED00088FAF4 /* Controllers */,
+				2B189C152801DEC10088FAF4 /* Views */,
+				2B189C142801DEB90088FAF4 /* Models */,
 				2B2A97C327FEED2C00190107 /* Fonts */,
-				2B9099FC27FDBB0A0025CA7F /* AppDelegate.swift */,
-				2B9099FE27FDBB0A0025CA7F /* SceneDelegate.swift */,
-				2B909A0027FDBB0A0025CA7F /* ViewController.swift */,
-				2B909A0227FDBB0A0025CA7F /* Main.storyboard */,
-				2B909A0527FDBB0A0025CA7F /* Assets.xcassets */,
-				2B909A0727FDBB0A0025CA7F /* LaunchScreen.storyboard */,
+				2B189C172801DF100088FAF4 /* Supporting Files */,
 				2B909A0A27FDBB0A0025CA7F /* Info.plist */,
 			);
 			path = InstaGrid;
