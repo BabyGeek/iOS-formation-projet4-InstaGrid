@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import PhotosUI
 
 class ViewController: UIViewController {
+    private var selectedTab: UIButton?
     
     @IBOutlet weak var selectedView: SelectedView!
     @IBOutlet var layoutButtons: [UIButton]!
@@ -81,9 +83,52 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController {
+extension ViewController: PHPickerViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @available(iOS 14, *)
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        results.forEach { result in
+            result.itemProvider.loadObject(ofClass: UIImage.self) { reading, error in
+                guard let image = reading as? UIImage, error == nil else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.selectedTab?.setImage(image, for: .normal)
+                }
+            }
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
+        [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            DispatchQueue.main.async {
+                self.selectedTab?.setImage(image, for: .normal)
+            }
+        }
+
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func imageSelectionTapped(_ sender: UIButton) {
-        print(sender)
+        selectedTab = sender
+        
+        if #available(iOS 14, *) {
+            var configuration = PHPickerConfiguration(photoLibrary: .shared())
+            configuration.selectionLimit = 1
+            configuration.filter = .images
+            
+            let picker = PHPickerViewController(configuration: configuration)
+            picker.delegate = self
+            present(picker, animated: true)
+        } else {
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.sourceType = .photoLibrary
+            present(picker, animated: true, completion: nil)
+        }
     }
 }
 

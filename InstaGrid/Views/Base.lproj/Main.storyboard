@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJO-ue-qly">
-                                <rect key="frame" x="148" y="54" width="118.5" height="30"/>
+                                <rect key="frame" x="148.5" y="54" width="117" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="j3a-kT-kAx"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="116" id="k08-zu-uBN"/>
@@ -209,7 +209,7 @@
                                                             <constraint firstAttribute="height" constant="80" id="1Xd-09-pwz"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" image="Selected" backgroundImage="Layout 1"/>
+                                                        <state key="normal" image="Selected" backgroundImage="Layout 2"/>
                                                         <state key="selected" image="Selected" backgroundImage="Layout 2"/>
                                                         <connections>
                                                             <action selector="layoutSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l9S-uy-R7w"/>
