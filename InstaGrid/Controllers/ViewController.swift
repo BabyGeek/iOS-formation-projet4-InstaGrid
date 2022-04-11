@@ -17,10 +17,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        update()
-    }
-    
-    func update() {
         updateSelectedButton()
     }
     
@@ -80,6 +76,14 @@ class ViewController: UIViewController {
                 layoutButtons[index].isSelected = false
             }
         }
+    }
+    
+}
+
+
+extension ViewController: UIImagePickerControllerDelegate {
+    @IBAction func imageSelectionTapped(_ sender: UIButton) {
+        
     }
     
 }

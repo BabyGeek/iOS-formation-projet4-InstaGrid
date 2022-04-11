@@ -64,3 +64,4 @@ class SelectedView: UIView {
         rightTopButton.isHidden = false
     }
 }
+
