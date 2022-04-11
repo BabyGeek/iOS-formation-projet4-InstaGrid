@@ -83,22 +83,22 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate { //PHPickerViewControllerDelegate,
+extension ViewController: PHPickerViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-//    @available(iOS 14, *)
-//    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-//        results.forEach { result in
-//            result.itemProvider.loadObject(ofClass: UIImage.self) { reading, error in
-//                guard let image = reading as? UIImage, error == nil else {
-//                    return
-//                }
-//                DispatchQueue.main.async {
-//                    self.selectedTab?.setImage(image.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .normal)
-//                }
-//            }
-//        }
-//        picker.dismiss(animated: true, completion: nil)
-//    }
+    @available(iOS 14, *)
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        results.forEach { result in
+            result.itemProvider.loadObject(ofClass: UIImage.self) { reading, error in
+                guard let image = reading as? UIImage, error == nil else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.selectedTab?.setImage(image.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .normal)
+                }
+            }
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
@@ -116,17 +116,13 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         selectedTab = sender
         
         if #available(iOS 14, *) {
-            let picker = UIImagePickerController()
+            var configuration = PHPickerConfiguration(photoLibrary: .shared())
+            configuration.selectionLimit = 1
+            configuration.filter = .images
+            
+            let picker = PHPickerViewController(configuration: configuration)
             picker.delegate = self
-            picker.sourceType = .photoLibrary
-            present(picker, animated: true, completion: nil)
-//            var configuration = PHPickerConfiguration(photoLibrary: .shared())
-//            configuration.selectionLimit = 1
-//            configuration.filter = .images
-//
-//            let picker = PHPickerViewController(configuration: configuration)
-//            picker.delegate = self
-//            present(picker, animated: true)
+            present(picker, animated: true)
         } else {
             let picker = UIImagePickerController()
             picker.delegate = self
