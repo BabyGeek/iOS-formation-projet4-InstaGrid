@@ -81,10 +81,9 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController: UIImagePickerControllerDelegate {
+extension ViewController {
     @IBAction func imageSelectionTapped(_ sender: UIButton) {
-        
+        print(sender)
     }
-    
 }
 
