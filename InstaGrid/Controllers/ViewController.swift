@@ -93,7 +93,7 @@ extension ViewController: PHPickerViewControllerDelegate, UIImagePickerControlle
                     return
                 }
                 DispatchQueue.main.async {
-                    self.selectedTab?.setImage(image, for: .normal)
+                    self.selectedTab?.setImage(image.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .normal)
                 }
             }
         }
