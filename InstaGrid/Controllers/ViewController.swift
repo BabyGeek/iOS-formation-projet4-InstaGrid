@@ -10,6 +10,7 @@ import PhotosUI
 
 class ViewController: UIViewController {
     private var selectedTab: UIButton?
+    private var validGesture: Bool = false
     
     @IBOutlet weak var selectedView: SelectedView!
     @IBOutlet var layoutButtons: [UIButton]!
@@ -20,6 +21,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateSelectedButton()
+        
+        let panGestureRecognize = UIPanGestureRecognizer(target: self, action: #selector(dragToShare))
+        selectedView.addGestureRecognizer(panGestureRecognize)
+    }
+    
+    
+    @objc func dragToShare(_ sender: UIPanGestureRecognizer) {
+        switch sender.state {
+        case .began, .changed:
+            makeTransitionToShareWith(sender)
+            break
+        case .ended, .cancelled:
+            if self.validGesture {
+                showActivityController()
+            }
+            break
+        default:
+            break
+        }
     }
     
     func updateSelectedButton() {
@@ -66,6 +86,8 @@ class ViewController: UIViewController {
                 layoutButtons[index].setImage(nil, for: .normal)
             }
         }
+        
+        animateRoll()
     }
     
     func selectButton(_ index: Int) {
@@ -102,13 +124,13 @@ extension ViewController: PHPickerViewControllerDelegate, UIImagePickerControlle
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
-        [UIImagePickerController.InfoKey : Any]) {
+                               [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             DispatchQueue.main.async {
                 self.selectedTab?.setImage(image, for: .normal)
             }
         }
-
+        
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -129,6 +151,90 @@ extension ViewController: PHPickerViewControllerDelegate, UIImagePickerControlle
             picker.sourceType = .photoLibrary
             present(picker, animated: true, completion: nil)
         }
+    }
+}
+
+
+extension ViewController {
+    
+    /// Make the transition in function of the app orientation
+    /// - Parameter gesture: gesture made by the user on the selectedView
+    func makeTransitionToShareWith(_ gesture: UIPanGestureRecognizer) {
+        var x = self.selectedView.frame.minX
+        var y = self.selectedView.frame.minY
+        
+        if UIApplication.shared.statusBarOrientation.isLandscape {
+            if gesture.velocity(in: self.selectedView).x < 0 {
+                self.validGesture = true
+                
+                let translation = gesture.translation(in: self.selectedView)
+                x = translation.x
+            } else {
+                self.validGesture = false
+            }
+            
+        } else {
+            if gesture.velocity(in: self.selectedView).y < 0 {
+                self.validGesture = true
+                
+                let translation = gesture.translation(in: self.selectedView)
+                y = translation.y
+                
+            } else {
+                self.validGesture = false
+            }
+        }
+        
+        if self.validGesture {
+            let transform = CGAffineTransform(translationX: x, y: y)
+            self.selectedView.transform = transform
+        }
+    }
+    
+    
+    /// show the UIActivityController if the user as a correct gesture ended or stopped and reset the gesture validation
+    func showActivityController() {
+        let screenHeight = UIScreen.main.bounds.height
+        let screenWidth = UIScreen.main.bounds.width
+        
+        var tanslationTransform: CGAffineTransform
+
+        if UIApplication.shared.statusBarOrientation.isLandscape {
+            tanslationTransform = CGAffineTransform(translationX: -screenWidth, y: 0)
+        } else {
+            tanslationTransform = CGAffineTransform(translationX: selectedView.frame.minX, y: -screenHeight)
+        }
+        
+        
+        
+        UIView.animate(withDuration: 0.8) {
+            self.selectedView.transform = tanslationTransform
+        } completion: { success in
+            if success {
+                self.displaySelectedViewWithAnimation()
+            }
+        }
+    }
+    
+    
+    /// Reset the position of selectedView with animation zoom in
+    func displaySelectedViewWithAnimation() {
+        selectedView.transform = .identity
+        selectedView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+        
+        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.selectedView.transform = .identity
+        }, completion: nil)
+    }
+    
+    
+    /// Make roll animation to selectedView
+    func animateRoll() {
+        selectedView.transform = CGAffineTransform(scaleX: -0.01, y: -0.01)
+        
+        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.selectedView.transform = .identity
+        }, completion: nil)
     }
 }
 
