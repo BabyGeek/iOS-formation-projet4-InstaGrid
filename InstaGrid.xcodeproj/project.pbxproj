@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B3D53D02805CACF00726497 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D53CF2805CACF00726497 /* UIImageExtension.swift */; };
 		2B434A6327FEEE8300ED5E3D /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2B434A6127FEEE8300ED5E3D /* Delm-Medium.otf */; };
 		2B434A6427FEEE8300ED5E3D /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2B434A6227FEEE8300ED5E3D /* ThirstySoftRegular.otf */; };
 		2B8145FB28028C93009D76AF /* SelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8145FA28028C93009D76AF /* SelectedView.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B3D53CF2805CACF00726497 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		2B434A6127FEEE8300ED5E3D /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		2B434A6227FEEE8300ED5E3D /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		2B8145FA28028C93009D76AF /* SelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedView.swift; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		2B3D53CC2805CA9B00726497 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2B3D53CF2805CACF00726497 /* UIImageExtension.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		2B9099F027FDBB0A0025CA7F = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +116,7 @@
 		2B9099FB27FDBB0A0025CA7F /* InstaGrid */ = {
 			isa = PBXGroup;
 			children = (
+				2B3D53CC2805CA9B00726497 /* Utilities */,
 				2B189C142801DEB90088FAF4 /* Models */,
 				2B189C152801DEC10088FAF4 /* Views */,
 				2B189C162801DED00088FAF4 /* Controllers */,
@@ -192,6 +203,7 @@
 				2B909A0127FDBB0A0025CA7F /* ViewController.swift in Sources */,
 				2B8145FB28028C93009D76AF /* SelectedView.swift in Sources */,
 				2B9099FD27FDBB0A0025CA7F /* AppDelegate.swift in Sources */,
+				2B3D53D02805CACF00726497 /* UIImageExtension.swift in Sources */,
 				2B9099FF27FDBB0A0025CA7F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

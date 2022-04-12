@@ -139,8 +139,11 @@ extension ViewController: PHPickerViewControllerDelegate, UIImagePickerControlle
                 }
                 
                 guard let selectedTab = self.selectedTab else { return }
+                
                 DispatchQueue.main.async {
-                    selectedTab.setImage(image, for: .normal)
+                    selectedTab.setImage(image.scalePreservingAspectRatio(targetSize: CGSize(width: selectedTab.frame.width, height: selectedTab.frame.height)), for: .normal)
+                    selectedTab.backgroundColor = self.selectedView.backgroundColor
+                    
                 }
             }
         }
@@ -155,9 +158,12 @@ extension ViewController: PHPickerViewControllerDelegate, UIImagePickerControlle
     ///   - info: informations from the picker after selection done
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
                                [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedTab = self.selectedTab else { return }
+        
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             DispatchQueue.main.async {
-                self.selectedTab?.setImage(image, for: .normal)
+                selectedTab.setImage(image.scalePreservingAspectRatio(targetSize: CGSize(width: selectedTab.frame.width, height: selectedTab.frame.height)), for: .normal)
+                selectedTab.backgroundColor = self.selectedView.backgroundColor
             }
         }
         
