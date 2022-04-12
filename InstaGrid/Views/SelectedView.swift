@@ -25,14 +25,6 @@ class SelectedView: UIView {
         }
     }
     
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-    
     func setLayout(_ layout: Layout) {
         switch layout {
         case .layout1:
@@ -66,7 +58,9 @@ class SelectedView: UIView {
     }
 }
 
+//MARK: - Extension for ItemSource protocol
 
+/// For sharing purposes
 extension SelectedView: UIActivityItemSource {
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
         return "Hey that is my new grid image using the perfect Instagrid app!"

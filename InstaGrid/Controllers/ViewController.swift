@@ -109,6 +109,8 @@ class ViewController: UIViewController {
 }
 
 
+//MARK: - Extension for image selection handling
+
 extension ViewController: PHPickerViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @available(iOS 14, *)
@@ -119,7 +121,7 @@ extension ViewController: PHPickerViewControllerDelegate, UIImagePickerControlle
                     return
                 }
                 DispatchQueue.main.async {
-                    self.selectedTab?.setImage(image.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .normal)
+                    self.selectedTab?.setImage(image, for: .normal)
                 }
             }
         }
@@ -158,6 +160,8 @@ extension ViewController: PHPickerViewControllerDelegate, UIImagePickerControlle
     }
 }
 
+
+//MARK: - Extension for Alert, animations and UIActivityController
 
 extension ViewController {
     
