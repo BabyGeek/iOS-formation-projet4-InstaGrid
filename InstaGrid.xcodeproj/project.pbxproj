@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B3D53D02805CACF00726497 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D53CF2805CACF00726497 /* UIImageExtension.swift */; };
 		2B434A6327FEEE8300ED5E3D /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2B434A6127FEEE8300ED5E3D /* Delm-Medium.otf */; };
 		2B434A6427FEEE8300ED5E3D /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2B434A6227FEEE8300ED5E3D /* ThirstySoftRegular.otf */; };
+		2B8145FB28028C93009D76AF /* SelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8145FA28028C93009D76AF /* SelectedView.swift */; };
 		2B9099FD27FDBB0A0025CA7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9099FC27FDBB0A0025CA7F /* AppDelegate.swift */; };
 		2B9099FF27FDBB0A0025CA7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9099FE27FDBB0A0025CA7F /* SceneDelegate.swift */; };
 		2B909A0127FDBB0A0025CA7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B909A0027FDBB0A0025CA7F /* ViewController.swift */; };
@@ -18,8 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B3D53CF2805CACF00726497 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		2B434A6127FEEE8300ED5E3D /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		2B434A6227FEEE8300ED5E3D /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
+		2B8145FA28028C93009D76AF /* SelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedView.swift; sourceTree = "<group>"; };
 		2B9099F927FDBB0A0025CA7F /* InstaGrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaGrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9099FC27FDBB0A0025CA7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B9099FE27FDBB0A0025CA7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +45,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B189C142801DEB90088FAF4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2B189C152801DEC10088FAF4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2B909A0227FDBB0A0025CA7F /* Main.storyboard */,
+				2B8145FA28028C93009D76AF /* SelectedView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2B189C162801DED00088FAF4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2B909A0027FDBB0A0025CA7F /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2B189C172801DF100088FAF4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2B9099FC27FDBB0A0025CA7F /* AppDelegate.swift */,
+				2B9099FE27FDBB0A0025CA7F /* SceneDelegate.swift */,
+				2B909A0527FDBB0A0025CA7F /* Assets.xcassets */,
+				2B909A0727FDBB0A0025CA7F /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		2B2A97C327FEED2C00190107 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -48,6 +87,14 @@
 				2B434A6227FEEE8300ED5E3D /* ThirstySoftRegular.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2B3D53CC2805CA9B00726497 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2B3D53CF2805CACF00726497 /* UIImageExtension.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		2B9099F027FDBB0A0025CA7F = {
@@ -69,13 +116,12 @@
 		2B9099FB27FDBB0A0025CA7F /* InstaGrid */ = {
 			isa = PBXGroup;
 			children = (
+				2B3D53CC2805CA9B00726497 /* Utilities */,
+				2B189C142801DEB90088FAF4 /* Models */,
+				2B189C152801DEC10088FAF4 /* Views */,
+				2B189C162801DED00088FAF4 /* Controllers */,
 				2B2A97C327FEED2C00190107 /* Fonts */,
-				2B9099FC27FDBB0A0025CA7F /* AppDelegate.swift */,
-				2B9099FE27FDBB0A0025CA7F /* SceneDelegate.swift */,
-				2B909A0027FDBB0A0025CA7F /* ViewController.swift */,
-				2B909A0227FDBB0A0025CA7F /* Main.storyboard */,
-				2B909A0527FDBB0A0025CA7F /* Assets.xcassets */,
-				2B909A0727FDBB0A0025CA7F /* LaunchScreen.storyboard */,
+				2B189C172801DF100088FAF4 /* Supporting Files */,
 				2B909A0A27FDBB0A0025CA7F /* Info.plist */,
 			);
 			path = InstaGrid;
@@ -155,7 +201,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B909A0127FDBB0A0025CA7F /* ViewController.swift in Sources */,
+				2B8145FB28028C93009D76AF /* SelectedView.swift in Sources */,
 				2B9099FD27FDBB0A0025CA7F /* AppDelegate.swift in Sources */,
+				2B3D53D02805CACF00726497 /* UIImageExtension.swift in Sources */,
 				2B9099FF27FDBB0A0025CA7F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
