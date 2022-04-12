@@ -19,18 +19,22 @@ class ViewController: UIViewController {
     private var selected: Int = 1
     
     
+    /// When view load, update the selected layout, roll the layout, and start listening for gestures
     override func viewDidLoad() {
         super.viewDidLoad()
         updateSelectedButton()
         animateRoll()
         
         let panGestureSelectedViewRecognize = UIPanGestureRecognizer(target: self, action: #selector(dragToShare))
-        let panGestureSwipeiewRecognize = UIPanGestureRecognizer(target: self, action: #selector(dragToShare))
+        let panGestureSwipeViewRecognize = UIPanGestureRecognizer(target: self, action: #selector(dragToShare))
+        
         selectedView.addGestureRecognizer(panGestureSelectedViewRecognize)
-        swipeView.addGestureRecognizer(panGestureSwipeiewRecognize)
+        swipeView.addGestureRecognizer(panGestureSwipeViewRecognize)
     }
     
     
+    /// Capture the drag gesture to share the instagrid created
+    /// - Parameter sender: The gesture made by user
     @objc func dragToShare(_ sender: UIPanGestureRecognizer) {
         switch sender.state {
         case .began, .changed:
@@ -46,6 +50,8 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    /// Update the screen for the current selected layout
     func updateSelectedButton() {
         for index in layoutButtons.indices {
             if !layoutButtons[index].isSelected {
@@ -66,6 +72,9 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    /// Layout buttons selection
+    /// - Parameter sender: Layout selected by user to use
     @IBAction func layoutSelected(_ sender: UIButton) {
         switch sender {
         case layoutButtons[0]:
@@ -94,6 +103,9 @@ class ViewController: UIViewController {
         animateRoll()
     }
     
+    
+    /// Select the layout and unselect other layout buttons
+    /// - Parameter index: The index of the layout selected
     func selectButton(_ index: Int) {
         self.selected = index
         
@@ -113,7 +125,12 @@ class ViewController: UIViewController {
 
 extension ViewController: PHPickerViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
     @available(iOS 14, *)
+    /// Pick the image, and set it to the selected tab (compatible only for iOS 14 and older)
+    /// - Parameters:
+    ///   - picker: picker where the picture comes from
+    ///   - results: results from the picker after selection done
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         results.forEach { result in
             result.itemProvider.loadObject(ofClass: UIImage.self) { reading, error in
@@ -124,13 +141,18 @@ extension ViewController: PHPickerViewControllerDelegate, UIImagePickerControlle
                 guard let selectedTab = self.selectedTab else { return }
                 DispatchQueue.main.async {
                     selectedTab.setImage(image, for: .normal)
-                    selectedTab.imageView?.contentMode = .scaleToFill
                 }
             }
         }
+        
         picker.dismiss(animated: true, completion: nil)
     }
     
+    
+    /// Pick the image, and set it to the selected tab (compatible only for iOS 13 and earlier)
+    /// - Parameters:
+    ///   - picker: picker where the picture comes from
+    ///   - info: informations from the picker after selection done
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
                                [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -142,6 +164,9 @@ extension ViewController: PHPickerViewControllerDelegate, UIImagePickerControlle
         picker.dismiss(animated: true, completion: nil)
     }
     
+    
+    /// When user tap a tab to add an image, set it as selectedTab and fo the picker depending on the iOS the user is running
+    /// - Parameter sender: The button selected for the image to insert
     @IBAction func imageSelectionTapped(_ sender: UIButton) {
         selectedTab = sender
         

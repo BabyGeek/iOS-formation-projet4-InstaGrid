@@ -15,16 +15,22 @@ class SelectedView: UIView {
     @IBOutlet var rightBottomButton: UIButton!
     
     
+    /// Layouts enumerator
     enum Layout {
         case layout1, layout2, layout3
     }
     
+    
+    /// The current layout with automatic change when value updated
     var layout: Layout = .layout2 {
         didSet {
             setLayout(layout)
         }
     }
     
+    
+    /// Change the displayed layout
+    /// - Parameter layout: current layout to use
     func setLayout(_ layout: Layout) {
         switch layout {
         case .layout1:
@@ -36,6 +42,8 @@ class SelectedView: UIView {
         }
     }
     
+    
+    /// Set the configuration for first Layout
     func setLayout1() {
         rightTopButton.isHidden = true
         leftTopButton.isHidden = false
@@ -43,6 +51,7 @@ class SelectedView: UIView {
         rightBottomButton.isHidden = false
     }
     
+    /// Set the configuration for second Layout
     func setLayout2() {
         rightBottomButton.isHidden = true
         leftBottomButton.isHidden = false
@@ -50,6 +59,7 @@ class SelectedView: UIView {
         rightTopButton.isHidden = false
     }
     
+    /// Set the configuration for third Layout
     func setLayout3() {
         rightBottomButton.isHidden = false
         leftBottomButton.isHidden = false
@@ -62,15 +72,24 @@ class SelectedView: UIView {
 
 /// For sharing purposes
 extension SelectedView: UIActivityItemSource {
+    
+    /// UIActivityItemSource function for placeholder
+    /// - Parameter activityViewController: the current UIActivityViewController to be used in
+    /// - Returns: the placeholder to use
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
         return "Hey that is my new grid image using the perfect Instagrid app!"
     }
     
+    
+    /// Set the object to return to the UIActivityViewController for precise activityType or not
+    /// - Parameters:
+    ///   - activityViewController: the current UIActivityViewController to be used in
+    ///   - activityType: the activity type
+    /// - Returns: the object to return to the UIActivityViewController for the given activityType
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
         return self.asImage()
     }
 
-    
     /// Convert the view to an image
     /// - Returns: Image of the current SelectedView state
     func asImage() -> UIImage {
