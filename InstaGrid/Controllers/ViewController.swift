@@ -120,14 +120,16 @@ extension ViewController: PHPickerViewControllerDelegate, UIImagePickerControlle
                 guard let image = reading as? UIImage, error == nil else {
                     return
                 }
+                
+                guard let selectedTab = self.selectedTab else { return }
                 DispatchQueue.main.async {
-                    self.selectedTab?.setImage(image, for: .normal)
+                    selectedTab.setImage(image, for: .normal)
+                    selectedTab.imageView?.contentMode = .scaleToFill
                 }
             }
         }
         picker.dismiss(animated: true, completion: nil)
     }
-    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
                                [UIImagePickerController.InfoKey : Any]) {
@@ -206,7 +208,7 @@ extension ViewController {
         let screenWidth = UIScreen.main.bounds.width
         
         var tanslationTransform: CGAffineTransform
-
+        
         if UIApplication.shared.statusBarOrientation.isLandscape {
             tanslationTransform = CGAffineTransform(translationX: -screenWidth, y: 0)
         } else {
@@ -220,7 +222,7 @@ extension ViewController {
         UIView.animate(withDuration: 0.8, animations: { self.selectedView.transform = tanslationTransform }, completion: nil)
         
         ac.completionWithItemsHandler = { (activityType, completed: Bool,
-            returnedItems: [Any]?, error: Error?) in
+                                           returnedItems: [Any]?, error: Error?) in
             if completed {
                 self.presentSuccessShareAlert()
             }
@@ -234,10 +236,10 @@ extension ViewController {
     
     /// Display alert to tell user share worked
     func presentSuccessShareAlert() {
-            let alert = UIAlertController(title: "Share success!" , message: "You have shared your image with success.", preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(action)
-            present(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Share success!" , message: "You have shared your image with success.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
     
     
@@ -261,4 +263,3 @@ extension ViewController {
         }, completion: nil)
     }
 }
-
