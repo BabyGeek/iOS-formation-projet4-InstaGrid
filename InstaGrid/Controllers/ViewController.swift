@@ -218,11 +218,22 @@ extension ViewController {
         ac.completionWithItemsHandler = { (activityType, completed: Bool,
             returnedItems: [Any]?, error: Error?) in
             if completed {
-                UIView.animate(withDuration: 1) {
-                    self.selectedView.transform = .identity
-                }
-           }
+                self.presentSuccessShareAlert()
+            }
+            
+            UIView.animate(withDuration: 1) {
+                self.selectedView.transform = .identity
+            }
         }
+    }
+    
+    
+    /// Display alert to tell user share worked
+    func presentSuccessShareAlert() {
+            let alert = UIAlertController(title: "Share success!" , message: "You have shared your image with success.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
     }
     
     
