@@ -241,6 +241,7 @@
                     </view>
                     <connections>
                         <outlet property="selectedView" destination="ccW-EH-IEK" id="H7L-iz-Tsb"/>
+                        <outlet property="swipeView" destination="Zev-pc-HE3" id="hfX-Lb-36R"/>
                         <outletCollection property="layoutButtons" destination="Mmf-hW-HCm" collectionClass="NSMutableArray" id="Zlm-1Y-rR0"/>
                         <outletCollection property="layoutButtons" destination="Chx-Qo-djD" collectionClass="NSMutableArray" id="ucU-vG-5nc"/>
                         <outletCollection property="layoutButtons" destination="a02-yu-4Iv" collectionClass="NSMutableArray" id="dEN-Fn-t4a"/>

@@ -8,6 +8,7 @@
 import UIKit
 
 class SelectedView: UIView {
+    
     @IBOutlet var leftTopButton: UIButton!
     @IBOutlet var rightTopButton: UIButton!
     @IBOutlet var leftBottomButton: UIButton!
@@ -65,3 +66,23 @@ class SelectedView: UIView {
     }
 }
 
+
+extension SelectedView: UIActivityItemSource {
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        return "Hey that is my new grid image using the perfect Instagrid app!"
+    }
+    
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        return self.asImage()
+    }
+
+    
+    /// Convert the view to an image
+    /// - Returns: Image of the current SelectedView state
+    func asImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
+    }
+}

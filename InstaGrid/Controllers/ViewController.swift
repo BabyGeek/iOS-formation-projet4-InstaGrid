@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     private var selectedTab: UIButton?
     private var validGesture: Bool = false
     
+    @IBOutlet weak var swipeView: UIView!
     @IBOutlet weak var selectedView: SelectedView!
     @IBOutlet var layoutButtons: [UIButton]!
     
@@ -21,9 +22,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateSelectedButton()
+        animateRoll()
         
-        let panGestureRecognize = UIPanGestureRecognizer(target: self, action: #selector(dragToShare))
-        selectedView.addGestureRecognizer(panGestureRecognize)
+        let panGestureSelectedViewRecognize = UIPanGestureRecognizer(target: self, action: #selector(dragToShare))
+        let panGestureSwipeiewRecognize = UIPanGestureRecognizer(target: self, action: #selector(dragToShare))
+        selectedView.addGestureRecognizer(panGestureSelectedViewRecognize)
+        swipeView.addGestureRecognizer(panGestureSwipeiewRecognize)
     }
     
     
@@ -205,14 +209,19 @@ extension ViewController {
             tanslationTransform = CGAffineTransform(translationX: selectedView.frame.minX, y: -screenHeight)
         }
         
+        let items: [Any] = [selectedView.self as Any]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
         
+        UIView.animate(withDuration: 0.8, animations: { self.selectedView.transform = tanslationTransform }, completion: nil)
         
-        UIView.animate(withDuration: 0.8) {
-            self.selectedView.transform = tanslationTransform
-        } completion: { success in
-            if success {
-                self.displaySelectedViewWithAnimation()
-            }
+        ac.completionWithItemsHandler = { (activityType, completed: Bool,
+            returnedItems: [Any]?, error: Error?) in
+            if completed {
+                UIView.animate(withDuration: 1) {
+                    self.selectedView.transform = .identity
+                }
+           }
         }
     }
     
