@@ -143,7 +143,6 @@ extension ViewController: PHPickerViewControllerDelegate, UIImagePickerControlle
                 DispatchQueue.main.async {
                     selectedTab.setImage(image.scalePreservingAspectRatio(targetSize: CGSize(width: selectedTab.frame.width, height: selectedTab.frame.height)), for: .normal)
                     selectedTab.backgroundColor = self.selectedView.backgroundColor
-                    
                 }
             }
         }
