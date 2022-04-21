@@ -58,16 +58,7 @@ class ViewController: UIViewController {
                 layoutButtons[index].setImage(nil, for: .normal)
             } else {
                 self.selected = index
-                switch layoutButtons[index] {
-                case layoutButtons[0]:
-                    selectedView.layout = .layout1
-                case layoutButtons[1]:
-                    selectedView.layout = .layout2
-                case layoutButtons[2]:
-                    selectedView.layout = .layout3
-                default:
-                    selectedView.layout = .layout2
-                }
+                findSender(layoutButtons[index])
             }
         }
     }
@@ -76,23 +67,7 @@ class ViewController: UIViewController {
     /// Layout buttons selection
     /// - Parameter sender: Layout selected by user to use
     @IBAction func layoutSelected(_ sender: UIButton) {
-        switch sender {
-        case layoutButtons[0]:
-            selectedView.layout = .layout1
-            selectButton(0)
-        case layoutButtons[1]:
-            selectedView.layout = .layout2
-            selectButton(1)
-        case layoutButtons[2]:
-            selectedView.layout = .layout3
-            selectButton(2)
-            
-        default:
-            selectedView.layout = .layout2
-            selectButton(1)
-            
-        }
-        
+        findSender(sender, withSelect: true)
         
         for index in layoutButtons.indices {
             if !layoutButtons[index].isSelected {
@@ -101,6 +76,31 @@ class ViewController: UIViewController {
         }
         
         animateRoll()
+    }
+    
+    func findSender(_ sender: UIButton, withSelect: Bool = false) {
+        switch sender {
+        case layoutButtons[0]:
+            selectedView.layout = .layout1
+            if withSelect {
+                selectButton(0)
+            }
+        case layoutButtons[1]:
+            selectedView.layout = .layout2
+            if withSelect {
+                selectButton(1)
+            }
+        case layoutButtons[2]:
+            selectedView.layout = .layout3
+            if withSelect {
+                selectButton(2)
+            }
+        default:
+            selectedView.layout = .layout2
+            if withSelect {
+                selectButton(1)
+            }
+        }
     }
     
     
